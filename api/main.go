@@ -10,7 +10,7 @@ func init() {
 }
 
 func main() {
-	// Initialize DB from Database.go under Config folder
+	// Initialize DB from Database.go under config folder
 	Config.InitializeDB()
 	defer Config.Connection.Close(context.Background())
 
