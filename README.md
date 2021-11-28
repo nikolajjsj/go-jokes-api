@@ -1,1 +1,1 @@
-# Jokes API built with GO and GIN
+# Jokes API built with GO
