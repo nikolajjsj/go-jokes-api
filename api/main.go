@@ -2,8 +2,8 @@ package main
 
 import (
 	"context"
-	"github.com/nikolajjsj/golang-jokes-api/Config"
-	"github.com/nikolajjsj/golang-jokes-api/routes"
+	"go-jokes-api/Config"
+	"go-jokes-api/routes"
 )
 
 func init() {

@@ -4,7 +4,7 @@ import (
 	"net/http"
 
 	"github.com/gin-gonic/gin"
-	"github.com/nikolajjsj/golang-jokes-api/Models"
+	"go-jokes-api/Models"
 )
 
 // Get Jokes ...

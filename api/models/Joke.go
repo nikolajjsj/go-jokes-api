@@ -3,7 +3,7 @@ package Models
 import (
 	"context"
 	"fmt"
-	"github.com/nikolajjsj/golang-jokes-api/Config"
+	"go-jokes-api/Config"
 )
 
 // GetAllJokes fetch all jokes
