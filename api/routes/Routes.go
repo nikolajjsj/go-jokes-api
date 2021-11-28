@@ -7,14 +7,15 @@ import (
 
 // Setup router
 func SetupRouter() *gin.Engine {
-	r := gin.Default()
-	grp1 := r.Group("/jokes")
-	{
-		grp1.GET("jokes", Controllers.GetJokes)
-		// grp1.POST("jokes", Controllers.CreateJoke)
-		// grp1.GET("jokes/:id", Controllers.GetJokeByID)
-		// grp1.PUT("jokes/:id", Controllers.UpdateJoke)
-		// grp1.DELETE("jokes/:id", Controllers.DeleteJoke)
-	}
-	return r
+	router := gin.Default()
+
+	// /Jokes path
+	router.GET("/jokes", Controllers.GetJokes)
+	// router.POST("/jokes", Controllers.CreateJoke)
+	// router.GET("/jokes/:id", Controllers.GetJokeByID)
+	// router.PUT("/jokes/:id", Controllers.UpdateJoke)
+	// router.DELETE("/jokes/:id", Controllers.DeleteJoke)
+
+	// Return GIN router
+	return router
 }

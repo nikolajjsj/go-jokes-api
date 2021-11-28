@@ -7,10 +7,9 @@ import (
 	"github.com/nikolajjsj/golang-jokes-api/Models"
 )
 
-// Get Jokes
+// Get Jokes ...
 func GetJokes(c *gin.Context) {
-	var jokes []Models.Joke
-	err := Models.GetAllJokes(&jokes)
+	jokes, err := Models.GetAllJokes()
 	if err != nil {
 		c.AbortWithStatus(http.StatusNotFound)
 	} else {
@@ -18,10 +17,10 @@ func GetJokes(c *gin.Context) {
 	}
 }
 
-// Create Joke
+// Create Joke ...
 
-// Get Joke by id
+// Get Joke by id ...
 
-// Update Jokes
+// Update Jokes ...
 
-// Delete joke
+// Delete joke ...

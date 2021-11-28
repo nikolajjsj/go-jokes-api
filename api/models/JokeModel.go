@@ -1,11 +1,14 @@
 package Models
 
+import "time"
+
 type Joke struct {
-	Id    uint   `json:"id"`
-	Title string `json:"title"`
-	Joke  string `json:"joke"`
+	ID        uint   `json:"id"`
+	Title     string `json:"title"`
+	Joke      string `json:"joke"`
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func (b *Joke) TableName() string {
-	return "joke"
+	return "jokes"
 }

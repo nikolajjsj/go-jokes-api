@@ -1,27 +1,20 @@
 package main
 
 import (
-	"fmt"
+	"context"
 	"github.com/nikolajjsj/golang-jokes-api/Config"
-	"github.com/nikolajjsj/golang-jokes-api/Models"
 	"github.com/nikolajjsj/golang-jokes-api/routes"
-
-	"github.com/jinzhu/gorm"
 )
 
-var err error
+func init() {
+}
 
 func main() {
-	Config.DB, err = gorm.Open("mysql", Config.DbURL(Config.BuildDBConfig()))
+	// Initialize DB from Database.go under Config folder
+	Config.InitializeDB()
+	defer Config.Connection.Close(context.Background())
 
-	if err != nil {
-		fmt.Println("Status: ", err)
-	}
-
-	defer Config.DB.Close()
-
-	Config.DB.AutoMigrate(&Models.Joke{})
-
+	// Initialize router
 	r := Routes.SetupRouter()
 	r.Run()
 }
