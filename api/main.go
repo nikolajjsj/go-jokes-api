@@ -1,9 +1,9 @@
 package main
 
 import (
-	"api/config"
-	"api/routes"
 	"context"
+	"github.com/nikolajjsj/go-jokes-api/api/config"
+	"github.com/nikolajjsj/go-jokes-api/api/routes"
 )
 
 func init() {

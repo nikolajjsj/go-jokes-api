@@ -3,8 +3,8 @@ package Controllers
 import (
 	"net/http"
 
-	"api/models"
 	"github.com/gin-gonic/gin"
+	"github.com/nikolajjsj/go-jokes-api/api/models"
 )
 
 // Get Jokes ...

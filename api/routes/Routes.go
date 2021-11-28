@@ -1,8 +1,8 @@
 package Routes
 
 import (
-	"api/controllers"
 	"github.com/gin-gonic/gin"
+	"github.com/nikolajjsj/go-jokes-api/api/controllers"
 )
 
 // Setup router
