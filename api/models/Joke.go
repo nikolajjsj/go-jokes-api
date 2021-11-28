@@ -1,9 +1,9 @@
 package Models
 
 import (
+	"api/Config"
 	"context"
 	"fmt"
-	"go-jokes-api/Config"
 )
 
 // GetAllJokes fetch all jokes
