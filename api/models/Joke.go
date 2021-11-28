@@ -1,7 +1,7 @@
 package Models
 
 import (
-	"api/Config"
+	"api/config"
 	"context"
 	"fmt"
 )
