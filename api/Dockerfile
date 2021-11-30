@@ -12,4 +12,4 @@ RUN go build -o /go-jokes-api
 EXPOSE 8080
 
 ENTRYPOINT ["/go-jokes-api"]
-CMD ./go-jokes-api
+CMD "./go-jokes-api"
