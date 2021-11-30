@@ -5,16 +5,14 @@ import (
 	"github.com/nikolajjsj/go-jokes-api/api/controllers"
 )
 
-// Setup router
+// SetupRouter function for initiating the Gin router
 func SetupRouter() *gin.Engine {
 	router := gin.Default()
 
-	// /Jokes path
+	// Router endpoints
 	router.GET("/jokes", Controllers.GetJokes)
-	// router.POST("/jokes", Controllers.CreateJoke)
-	// router.GET("/jokes/:id", Controllers.GetJokeByID)
-	// router.PUT("/jokes/:id", Controllers.UpdateJoke)
-	// router.DELETE("/jokes/:id", Controllers.DeleteJoke)
+	router.GET("/jokes/random", Controllers.RandomJoke)
+	router.GET("/jokes/:id", Controllers.GetJokeByID)
 
 	// Return GIN router
 	return router

@@ -31,9 +31,11 @@ func GetAllJokes() ([]Joke, error) {
 }
 
 // CreateJoke create joke
+
+// GetJokeByID get joke by its ID
 func GetJokeByID(id int) (*Joke, error) {
 	var joke Joke
-	if err := Config.Connection.QueryRow(context.Background(), "SELECT * WHERE ID=$1", id).Scan(&joke.ID, &joke.Title, &joke.Joke, &joke.CreatedAt); err != nil {
+	if err := Config.Connection.QueryRow(context.Background(), "SELECT * FROM jokes WHERE ID=$1", id).Scan(&joke.ID, &joke.Title, &joke.Joke, &joke.CreatedAt); err != nil {
 		fmt.Println("Error occur while finding joke: ", err)
 		return nil, err
 	}
@@ -41,7 +43,16 @@ func GetJokeByID(id int) (*Joke, error) {
 	return &joke, nil
 }
 
-// GetJokeByID
+// GetRandomJoke random joke
+func GetRandomJoke() (*Joke, error) {
+	var joke Joke
+	if err := Config.Connection.QueryRow(context.Background(), "SELECT * FROM jokes OFFSET floor(random() * (SELECT COUNT(*) FROM jokes)) LIMIT 1").Scan(&joke.ID, &joke.Title, &joke.Joke, &joke.CreatedAt); err != nil {
+		fmt.Println("Error occured while finding joke: ", err)
+		return nil, err
+	}
+	fmt.Printf("joke #%v\n", joke)
+	return &joke, nil
+}
 
 // UpdateJoke
 
