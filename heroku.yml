@@ -1,6 +1,0 @@
-build:
-  docker:
-    web: api/Dockerfile
-
-run:
-  web: ./go-jokes-api
