@@ -9,7 +9,7 @@ COPY . .
 
 RUN go build -o /go-jokes-api
 
-EXPOSE 8080
+EXPOSE $PORT
 
 ENTRYPOINT ["/go-jokes-api"]
 CMD "./go-jokes-api"
