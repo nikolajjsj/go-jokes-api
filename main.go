@@ -10,10 +10,11 @@ import (
 func init() {
 	// Initialize DB from Database.go under config folder
 	Config.InitializeDB()
-	defer Config.Connection.Close(context.Background())
 }
 
 func main() {
+	defer Config.Connection.Close(context.Background())
+
 	// Fetch the port from the .env file
 	port := os.Getenv("PORT")
 
