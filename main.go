@@ -4,6 +4,7 @@ import (
 	"context"
 	"github.com/nikolajjsj/go-jokes-api/api/config"
 	"github.com/nikolajjsj/go-jokes-api/api/routes"
+	"os"
 )
 
 func init() {
@@ -14,7 +15,10 @@ func main() {
 	Config.InitializeDB()
 	defer Config.Connection.Close(context.Background())
 
+	// Fetch the port from the .env file
+	port := os.Getenv("PORT")
+
 	// Initialize router
 	r := Routes.SetupRouter()
-	r.Run()
+	r.Run(":" + port)
 }

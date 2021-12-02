@@ -17,7 +17,7 @@ func GetAllJokes() ([]Joke, error) {
 		defer rows.Close()
 		var tmpJoke Joke
 		for rows.Next() {
-			rows.Scan(&tmpJoke.ID, &tmpJoke.Title, &tmpJoke.Joke, &tmpJoke.CreatedAt)
+			rows.Scan(&tmpJoke.ID, &tmpJoke.Joke, &tmpJoke.CreatedAt)
 			fmt.Printf("%+v\n", tmpJoke)
 			tempJokes = append(tempJokes, tmpJoke)
 		}
@@ -35,7 +35,7 @@ func GetAllJokes() ([]Joke, error) {
 // GetJokeByID get joke by its ID
 func GetJokeByID(id int) (*Joke, error) {
 	var joke Joke
-	if err := Config.Connection.QueryRow(context.Background(), "SELECT * FROM jokes WHERE ID=$1", id).Scan(&joke.ID, &joke.Title, &joke.Joke, &joke.CreatedAt); err != nil {
+	if err := Config.Connection.QueryRow(context.Background(), "SELECT * FROM jokes WHERE ID=$1", id).Scan(&joke.ID, &joke.Joke, &joke.CreatedAt); err != nil {
 		fmt.Println("Error occur while finding joke: ", err)
 		return nil, err
 	}
@@ -46,7 +46,7 @@ func GetJokeByID(id int) (*Joke, error) {
 // GetRandomJoke random joke
 func GetRandomJoke() (*Joke, error) {
 	var joke Joke
-	if err := Config.Connection.QueryRow(context.Background(), "SELECT * FROM jokes OFFSET floor(random() * (SELECT COUNT(*) FROM jokes)) LIMIT 1").Scan(&joke.ID, &joke.Title, &joke.Joke, &joke.CreatedAt); err != nil {
+	if err := Config.Connection.QueryRow(context.Background(), "SELECT * FROM jokes OFFSET floor(random() * (SELECT COUNT(*) FROM jokes)) LIMIT 1").Scan(&joke.ID, &joke.Joke, &joke.CreatedAt); err != nil {
 		fmt.Println("Error occured while finding joke: ", err)
 		return nil, err
 	}
