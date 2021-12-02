@@ -2,10 +2,16 @@ package main
 
 import (
 	"context"
+	"github.com/joho/godotenv"
 	"github.com/nikolajjsj/go-jokes-api/api/config"
 	"github.com/nikolajjsj/go-jokes-api/api/routes"
 	"os"
 )
+
+func init() {
+	// Load the .env file in the current directory
+	godotenv.Load()
+}
 
 func main() {
 	// Initialize DB from Database.go under config folder
