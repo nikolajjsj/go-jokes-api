@@ -8,13 +8,12 @@ import (
 )
 
 func init() {
-}
-
-func main() {
 	// Initialize DB from Database.go under config folder
 	Config.InitializeDB()
 	defer Config.Connection.Close(context.Background())
+}
 
+func main() {
 	// Fetch the port from the .env file
 	port := os.Getenv("PORT")
 
