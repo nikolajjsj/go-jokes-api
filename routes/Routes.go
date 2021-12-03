@@ -17,7 +17,7 @@ func SetupRouter() *gin.Engine {
 
 	// Router endpoints
 	router.GET("/jokes", Controllers.GetJokes)
-	router.GET("/jokes/random", Controllers.RandomJoke)
+	router.GET("/random", Controllers.RandomJoke)
 	router.GET("/jokes/:id", Controllers.GetJokeByID)
 
 	// Return GIN router
