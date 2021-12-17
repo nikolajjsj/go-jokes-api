@@ -9,10 +9,15 @@ import (
 // SetupRouter function for initiating the Gin router
 func SetupRouter() *gin.Engine {
 	router := gin.Default()
+	// Gather templates + stylesheets
+	router.LoadHTMLGlob("templates/*")
+	router.Static("/assets", "./assets")
 
 	// Homepage of the api
 	router.GET("/", func(c *gin.Context) {
-		c.String(http.StatusOK, "Welcome to go-jokes-api!\nPlease checkout \"/jokes\"")
+		c.HTML(http.StatusOK, "index.tmpl", gin.H{
+			"title": "Main website",
+		})
 	})
 
 	// Router endpoints
